@@ -22,6 +22,8 @@ namespace CsharpDictionarySort
                 s += string.Format("Key = {0}, Value = {1}",
                     kvp.Key, kvp.Value) + Environment.NewLine;
                 //Console.Write(kvp.Value);
+                string l = string.Format("{0}", kvp.Value);
+                if (l == "Ania") Console.Write("Error");
             }
 
             Console.Write(s);
