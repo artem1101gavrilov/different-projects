@@ -138,6 +138,34 @@ namespace CSharpTasks
             Console.WriteLine("Right: " + RightArrows + ", Left: " + LeftArrows);
         }
 
+        public static void Task4()
+        {
+            //Допустим было 10
+            int k = 10;
+            string text = "";
+            //Ввели число 2
+            //Для этого умножим наше число на 10
+            k *= 10;
+            //Возьмем модуль из 100 000
+            k = k % 100000;
+            //Прибавим 2
+            k += 2;
+            //Добавим нули перед началом
+            for (int i = 1; i < 6; i++)
+            {
+                if (Math.Pow(10, i) > k)
+                {
+                    for (int j = 0; j < 6 - i; j++)
+                    {
+                        text += "0";
+                    }
+                    break;
+                }
+            }
+            text += k.ToString();
+            Console.WriteLine(text);
+        }
+        
         static void Main(string[] args)
         {
             Task3();
