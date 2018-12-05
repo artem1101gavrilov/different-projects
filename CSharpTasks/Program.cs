@@ -141,7 +141,7 @@ namespace CSharpTasks
         public static void Task4()
         {
             //Допустим было 123
-            int k = 123;
+            int k = 70007;
             string text = "";
             //Ввели число 7
             //Возьмем модуль из 100 000
@@ -151,6 +151,7 @@ namespace CSharpTasks
             //Прибавим 7
             k += 7;
             //Добавим нули перед началом
+            var startTime = System.Diagnostics.Stopwatch.StartNew();
             for (int i = 1; i < 6; i++)
             {
                 if (Math.Pow(10, i) > k)
@@ -163,7 +164,36 @@ namespace CSharpTasks
                 }
             }
             text += k.ToString();
+            startTime.Stop();
+            var resultTime = startTime.Elapsed;
+
+            // elapsedTime - строка, которая будет содержать значение затраченного времени
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}",
+                resultTime.Hours,
+                resultTime.Minutes,
+                resultTime.Seconds,
+                resultTime.Milliseconds);
             Console.WriteLine(text);
+            Console.WriteLine(elapsedTime);
+        }
+
+        public static void Task5()
+        {
+            int _invoiceNum = 100;
+            string s;
+            var startTime = System.Diagnostics.Stopwatch.StartNew();
+            s = string.Format("{0:000000}", _invoiceNum);
+            startTime.Stop();
+            var resultTime = startTime.Elapsed;
+
+            // elapsedTime - строка, которая будет содержать значение затраченного времени
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:000}",
+                resultTime.Hours,
+                resultTime.Minutes,
+                resultTime.Seconds,
+                resultTime.Milliseconds);
+            Console.WriteLine(s);
+            Console.WriteLine(elapsedTime);
         }
         
         static void Main(string[] args)
