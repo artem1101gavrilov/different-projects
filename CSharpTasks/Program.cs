@@ -243,7 +243,8 @@ namespace CSharpTasks
         public static void Task7()
         {
             List<Records> NameList = new List<Records>();
-            NameList.Add(new Records(){Name = "123", score = 13});
+            NameList.Add(new Records(){Name = "123", score = 135});
+            NameList.Add(new Records() { Name = "sdgs", score = 35 });
 
             //Запись
             FileStream fs = new FileStream("save.qwe", FileMode.Create);
@@ -258,6 +259,7 @@ namespace CSharpTasks
             try
             {
                 NameClassSave nameClassSave2 = (NameClassSave)bFormatter2.Deserialize(fs2);
+                nameClassSave2.NameList.Sort();
                 Console.WriteLine(nameClassSave2.NameList[0].Name);
             }
             catch(System.Exception e)
@@ -278,10 +280,16 @@ namespace CSharpTasks
     }
 
     [Serializable]
-    public struct Records
+    public struct Records : IComparable
     {
         public string Name;
         public int score;
+
+        public int CompareTo(object o)
+        {
+            Records rec = (Records)o;
+            return this.score.CompareTo(rec.score);
+        }
     }
 
     [Serializable]
