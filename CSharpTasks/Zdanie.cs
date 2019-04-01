@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,12 +38,20 @@ namespace CSharpTasks
 
     class Pivovarnya : Zdanie
     {
-
+        public Pivovarnya()
+        {
+            GDol = 3;
+            Beer = 1;
+        }
     }
 
     class Bar : Zdanie
     {
-
+        public Bar()
+        {
+            GDol = 5;
+            Beer = 2;
+        }
     }
 
     class Program
@@ -51,8 +59,8 @@ namespace CSharpTasks
         static void Main(string[] args)
         {
             Bar bar = new Bar();
-            bar.GDol = 5;
-            bar.Beer = 9;
+            //bar.GDol = 5;
+            //bar.Beer = 9;
             Console.Write(bar.EkonomikaText);
             Console.ReadKey(); 
         }
