@@ -27,6 +27,10 @@ class Solution
             lalala = lalala.Replace(c.ToString() , string.Empty);
         }
 
+        lalala = new string((from c in lalala
+                          where char.IsWhiteSpace(c) || char.IsLetterOrDigit(c)
+                          select c).ToArray());
+        
         Console.WriteLine(lalala);
         Console.ReadLine();
     }
