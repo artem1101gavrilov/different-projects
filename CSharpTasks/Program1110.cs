@@ -10,7 +10,7 @@ class Solution
         List<int> l = new List<int>(arr);
         int max = 0;
         for (int i = 0; i < l.Count; ++i)
-            if (max < l.LastIndexOf(l[i]) - l.IndexOf(l[i])) max = l.LastIndexOf(l[i]) - l.IndexOf(l[i]);
+            if (max < l.LastIndexOf(l[i]) - i) max = l.LastIndexOf(l[i]) - i;
         Console.WriteLine(max);
         Console.ReadLine();
     }
